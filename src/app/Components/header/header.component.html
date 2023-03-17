@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/Home" routerLinkActive="active">Home</a> 
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/product/Products" routerLinkActive="active">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/Order" routerLinkActive="active">Order</a>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/contactInfo" routerLinkActive="active">contact info</a>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="aboutUS" routerLinkActive="active">About US</a>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="form-page" routerLinkActive="active">add Product here</a>
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink="newProducts" routerLinkActive="active">add new Product</a>
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="register" routerLinkActive="active">user register</a>
+                      <li class="nav-item">
+                        <a class="nav-link" routerLink="Login" [hidden]="isAuth" routerLinkActive="active">Login</a>
+                        <li class="nav-item">
+                          <a class="nav-link" routerLink="Login" [hidden]="!isAuth" routerLinkActive="active">LogOut</a>
+             
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

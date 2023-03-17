@@ -1,0 +1,17 @@
+<div class="card" style="width:18rem;">
+  <img [src]="prd?.imgURL" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Name: {{prd?.name}}</h5>
+    <div>
+      <h6 class="card-subtitle mb-2 text-muted ">Price: {{prd?.price}}</h6>
+      <h6 class="card-text">Quantity: {{prd?.quantity}}</h6>
+    </div>
+  </div>
+</div>
+<!-- <button class="btn btn-success" >go back </button> -->
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+  <button type="button" class="btn btn-outline-primary"[disabled]="currPrdID==prdIdArr[0]" (click)="prev()"  >prev</button>
+  <button type="button" class="btn btn-outline-primary" (click)="goBck()">back</button>
+  <button type="button" class="btn btn-outline-primary"[disabled]="currPrdID==prdIdArr[prdIdArr.length-1]" (click)="next()">next</button>
+  <!-- <button type="button" class="btn btn-outline-primary" (click)="edit()">show</button> -->
+</div>

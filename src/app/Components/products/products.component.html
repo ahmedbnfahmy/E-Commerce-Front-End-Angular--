@@ -1,0 +1,79 @@
+<table class="table mt-3">
+  <thead>
+    <tr class="bg-dark text-light">
+      <th scope="col">Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th>Details</th>
+      <th scope="col">ADD CART</th>
+      <th scope="col">delete</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">BUY</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    
+    <!-- <ng-container *ngFor="let prd of prdList;let i=index"> -->
+    <ng-container *ngFor="let prd of prdListOfCat;let i=index">
+      <tr>
+        
+        <td>{{i+1}}</td>
+        <td>{{prd.name}}</td>
+        <td><img StyleBox [src]="prd.imgURL" width="200" height="180"></td>
+        <td>
+          <ng-container [ngSwitch]="prd.quantity">
+            <ng-container *ngSwitchCase="0">Out Of Stock</ng-container>
+            <ng-container *ngSwitchCase="1">Last one item</ng-container>
+            <ng-container *ngSwitchCase="2">Last 2 item</ng-container>
+            <ng-container *ngSwitchDefault>{{prd.quantity}}</ng-container>
+
+          </ng-container>
+
+        </td>
+        <td>{{prd.price}}</td>
+        <td><button class="btn btn-success" [routerLink]="['/product/Prddetails',prd.id]">Details</button></td>
+        <!-- <td><a class="btn btn-primary" [routerLink]="['/Products',prd.id]" role="button">ADD TO CART</a></td> -->
+        <td><button class="btn btn-success" (click)="getPrdCart(prd.id)" (click)="updateTotalPrice(prd.price,itemsCount.value)">ADD CART</button></td>
+        <td><button class="btn btn-success" (click)="deletePrd(prd.id)" >delete prd</button></td>
+        <!-- <td><button class="btn btn-success" (click)="addPrdToList()" >ADD prd to list </button></td> -->
+
+        <td><input type="number" class="form-control" #itemsCount></td>
+        <td><button class="btn btn-danger" [disabled]="prd.quantity==0" (click)="updateTotalPrice(prd.price,itemsCount.value)">Buy</button></td>
+        <!-- <td><button class="btn btn-danger" [hidden]="prd.quantity==0">Buy</button></td> -->
+      </tr>
+    </ng-container>
+  </tbody>
+
+</table>
+
+
+ <!-- cartList -->
+<table class="table mt-3">
+  <thead>
+    <tr class="bg-dark text-light">
+      <th scope="col">Number</th>
+      <th scope="col">Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">price</th>
+      <th scope="col">purchase Date</th>
+      <th scope="col">creditCard</th>
+    </tr>
+  </thead>
+  <ng-container *ngFor="let prd of cartList;let i=index">
+    <!-- <ng-container *ngFor="let prd of productList ;let i=index"> -->
+    <tbody>
+    <td>{{i+1}}</td>
+    <td>{{prd.name}}</td>
+    <td><img [src]="prd.imgURL" width="200" height="180"></td>
+    <td>{{prd.price | currency: 'EGP' }}</td>
+    <td>{{currDate | date:'shortDate'}}</td>
+    <td>{{creCard | creCardPipe}}</td>
+  
+  </tbody>
+    </ng-container>
+  </table>
+<h1><td>{{creCard | creCardPipe}}</td></h1>
+<h1><td>{{cardId | egpId }}</td></h1>
